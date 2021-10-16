@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/npenderg/test_folder/
+    - export DEPLOYPATH=/home/npenderg/asset_app/
     - /bin/cp -R * $DEPLOYPATH
