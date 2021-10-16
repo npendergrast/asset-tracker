@@ -13,7 +13,6 @@ async function launch() {
     assetValues = assetFunction.convertArray(assetValues);
     let analysedAssets = assetFunction.analyseAssets(assetValues, assets);
     if (analysedAssets.length > 0) {
-      console.log(analysedAssets);
       alerts.alertFunction(analysedAssets);
       assetFunction.updateDB(analysedAssets);
     }

@@ -84,7 +84,7 @@ function convertDate(assets) {
     if (element.last_time !== null) {
       let newDate = date.formatTZ(
         element.last_time,
-        'YYYY/MM/DD HH:mm',
+        'D-MMM h:mm A',
         'Pacific/Auckland'
       );
       element.last_time = newDate;
