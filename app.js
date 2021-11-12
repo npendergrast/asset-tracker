@@ -11,6 +11,7 @@ async function launch() {
     assets = assetFunction.convertDate(assets);
     let assetValues = await assetFunction.getAssetValue(codes);
     assetValues = assetFunction.convertArray(assetValues);
+    console.log(assetValues);
     let analysedAssets = assetFunction.analyseAssets(assetValues, assets);
     if (analysedAssets.length > 0) {
       alerts.alertFunction(analysedAssets);

@@ -14,7 +14,7 @@ async function getAssets() {
 async function getCodes() {
   try {
     const { rows } = await pool.query(
-      `SELECT DISTINCT(code) FROM assets WHERE is_active = true`
+      `SELECT DISTINCT(code), asset_type FROM assets WHERE is_active = true`
     );
     return rows;
   } catch (error) {

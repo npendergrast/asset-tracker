@@ -11,7 +11,13 @@ async function getAssetValue(assets) {
     if (i > 0 && i % 5 === 0) {
       await delay(62000);
     }
-    let currentVal = await apiCalls.cryptoApiCall(assets[i].code, 'USD');
+    let currentVal;
+    if (assets[i].asset_type === 'crypto') {
+      currentVal = await apiCalls.cryptoApiCall(assets[i].code, 'USD');
+    }
+    if (assets[i].asset_type === 'stock') {
+      currentVal = await apiCalls.stockApiCall(assets[i].code);
+    }
     currentValArr.push({ code: assets[i].code, val: currentVal });
   }
   return currentValArr;

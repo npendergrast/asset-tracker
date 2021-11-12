@@ -25,6 +25,28 @@ async function cryptoApiCall(coin, currency) {
   }
 }
 
+async function stockApiCall(stock) {
+  let currentVal;
+  try {
+    await axios
+      .get(
+        `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${stock}&apikey=${apiKey}`
+      )
+      .then(function (response) {
+        if (response.data.hasOwnProperty('Global Quote')) {
+          currentVal = response.data['Global Quote']['05. price'];
+          console.log(currentVal);
+        } else {
+          currentVal = 'no value';
+        }
+      });
+    return currentVal;
+  } catch (error) {
+    return 'failed';
+  }
+}
+
 module.exports = {
   cryptoApiCall,
+  stockApiCall,
 };

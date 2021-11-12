@@ -41,9 +41,9 @@ function alertFunction(analysedAssets) {
         if (analysedAssets[i].holding > 0) {
           message =
             message +
-            `<b>Total holding: ${totalHolding} ${analysedAssets[i].currency}</b>`;
+            `<b>Total holding: ${totalHolding} ${analysedAssets[i].currency}</b>\n`;
         }
-        message = message + `\n\n`;
+        message = message + `\n`;
         newString = newString + message;
       }
       if (analysedAssets.length === 1) {
